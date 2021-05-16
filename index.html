@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="[ L13F.R ]">
 
 	<!-- Title -->
@@ -163,10 +163,34 @@
 <body>
 	<div class="content" id="particles-js">
 		<div class="title">It's Me Lief</div>
-		<div class="sub-title">Kuasailah teknologi untuk membantu orang lain, bukan <br>untuk menguasai orang lain.</div>
-		<button class="btn-play">Play</button>
-		<button class="btn-pause">Pause</button>
+		<div class="sub-title">Setelah seseorang pergi, saya menjadi sadar bahwa orang baik akan<br>bersanding dengan orang yang baik pula.</div>
+		<div id="play-pause">
+			<button class="btn-play">Play</button>
+			<button class="btn-pause">Pause</button>
+		</div>
+		<audio id="lagu"><source src="https://j.top4top.io/m_1940towjx3.mp3" type="audio/mpeg"></audio>
 	</div>
+	
+	<!-- Lagu | Button Play & Pause -->
+	<script type="text/javascript">
+		var lagu = document.getElementById('lagu');
+		var controlBtn = document.getElementById('play-pause');
+
+		function playPause() {
+			if (lagu.paused) {
+				lagu.play();
+				controlBtn.className = "btn-pause";
+			} else {
+				lagu.pause();
+				controlBtn.className = "btn-play";
+			}
+		}
+		controlBtn.addEventListener("click", playPause);
+		track.addEventListener("ended", function() {
+			controlBtn.className = "btn-play";
+		});
+	</script>
+	<!-- End -->
 
 	<!-- Particles JS -->
 	<script src="particles.js"></script>
